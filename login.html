@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UangKu | Login Page</title>
+    <link rel="icon" href="img/uangku.jpeg" type="image/x-icon" />
+    <link rel="stylesheet" href="login.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="drop">
+        <div class="content">
+          <h2>Sign In</h2>
+          <form action="">
+            <div class="inputBox">
+              <input type="text" placeholder="username" />
+            </div>
+            <div class="inputBox">
+              <input type="text" placeholder="password" />
+            </div>
+            <div class="inputBox">
+              <input type="submit" value="Login" />
+            </div>
+          </form>
+        </div>
+      </div>
+      <a href="#" class="buttons">Connect to Google</a>
+      <a href="index.html" class="home-buttons">home</a>
+    </div>
+
+    <script>
+      let images = ["🤑", "💰", "💸", "💲", "💷", "💶", "💴", "💵", "🧧", "💱", "💹", "💳"];
+      document.addEventListener("mousemove", function (e) {
+        let body = document.querySelector("body");
+        let emoji = document.createElement("span");
+        let x = e.offsetX;
+        let y = e.offsetY;
+
+        emoji.style.left = x + "px";
+        emoji.style.top = y + "px";
+
+        let icon = images[Math.floor(Math.random() * images.length)];
+        emoji.innerText = icon;
+
+        let size = Math.random() * 20;
+        emoji.style.fontSize = 5 + size + "px";
+
+        // get random value for transform
+        let max = 0;
+        let min = 100;
+        let randomValue = Math.floor(Math.random() * (max + 1 - min) + min);
+        emoji.style.transform = "translateX(" + randomValue + "px";
+
+        body.appendChild(emoji);
+
+        setTimeout(function () {
+          emoji.remove();
+        }, 1000);
+      });
+    </script>
+  </body>
+</html>

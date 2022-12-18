@@ -135,16 +135,17 @@ body {
   bottom: 0;
   width: 120px;
   height: 120px;
-  background: #e59500;
+  background: #f2e8cf;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
   text-decoration: none;
-  color: #fff;
+  color: #292929;
   line-height: 1.2em;
   letter-spacing: 0.1em;
-  font-size: 0.8em;
+  font-size: 1em;
+  font-weight: 550;
   transition: 0.25s;
   text-align: center;
   box-shadow: inset 10px 10px 10px rgba(34, 21, 38, 0.05), 15px 25px 10px rgba(29, 15, 33, 0.1), 15px 20px 20px rgba(80, 51, 90, 0.1), inset -10px -10px 15px rgba(255, 255, 255, 0.5);
@@ -171,20 +172,21 @@ body {
   bottom: 0;
   width: 120px;
   height: 120px;
-  background: #489b5b;
+  background: #fdc100;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
   text-decoration: none;
-  color: #fff;
+  color: rgb(50, 42, 42);
   line-height: 1.2em;
   letter-spacing: 0.1em;
-  font-size: 0.8em;
+  font-size: 1.2em;
+  font-weight: 550;
   transition: 0.25s;
   text-align: center;
   box-shadow: inset 10px 10px 10px rgba(34, 21, 38, 0.05), 15px 25px 10px rgba(29, 15, 33, 0.1), 15px 20px 20px rgba(80, 51, 90, 0.1), inset -10px -10px 15px rgba(255, 255, 255, 0.5);
-  border-radius: 31% 69% 64% 36% / 48% 53% 47% 52%;
+  border-radius: 32% 68% 61% 39% / 50% 21% 79% 50%;
 }
 .home-buttons:hover {
   border-radius: 50%;
@@ -225,5 +227,64 @@ span {
   100% {
     transform: 0 80px;
     opacity: 0;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .container {
+    left: 0;
+  }
+  .container .drop {
+    width: 200px;
+    height: 200px;
+    left: -20px;
+  }
+  .container .drop::before {
+    top: 25px;
+    left: 40px;
+  }
+  .container .drop::after {
+    top: 45px;
+    left: 55px;
+  }
+  .container .drop .content form {
+    width: 50%;
+  }
+  .container .drop .content form .inputBox {
+    width: 100%;
+  }
+  .container .drop .content form .inputBox input {
+    font-size: 0.4em;
+  }
+  .container .drop .content form .inputBox input[type="submit"] {
+    font-size: 0.3em;
+  }
+  container .drop .content form .inputBox:last-child {
+    width: 75px;
+  }
+  .container .drop .content form .inputBox:last-child:hover {
+    width: 90px;
+  }
+  .buttons {
+    right: -7px;
+    width: 75px;
+    height: 75px;
+  }
+  .buttons::before {
+    top: 7px;
+    left: 15px;
+    width: 10px;
+    height: 10px;
+  }
+  .home-buttons {
+    right: 25px;
+    width: 75px;
+    height: 75px;
+  }
+  .home-buttons::before {
+    top: 7px;
+    left: 15px;
+    width: 10px;
+    height: 10px;
   }
 }

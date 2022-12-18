@@ -26,12 +26,12 @@
           </form>
         </div>
       </div>
-      <a href="#" class="buttons">Connect to Google</a>
-      <a href="index.html" class="home-buttons">home</a>
+      <a href="#" class="buttons">Sign Up</a>
+      <a href="index.html" class="home-buttons">Home</a>
     </div>
 
     <script>
-      let images = ["🤑", "💰", "💸", "💲", "💷", "💶", "💴", "💵", "🧧", "💱", "💹", "💳"];
+      let images = ["🤑", "💰", "💸", "💲", "💷", "💶", "💴", "💵", "🧧", "💹", "💳"];
       document.addEventListener("mousemove", function (e) {
         let body = document.querySelector("body");
         let emoji = document.createElement("span");
@@ -50,7 +50,7 @@
         // get random value for transform
         let max = 0;
         let min = 100;
-        let randomValue = Math.floor(Math.random() * (max + 1 - min) + min);
+        let randomValue = Math.floor(Math.random());
         emoji.style.transform = "translateX(" + randomValue + "px";
 
         body.appendChild(emoji);

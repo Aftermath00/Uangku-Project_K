@@ -19,6 +19,28 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
       </head>
       <body id="home">
+        
+        <!-- Preloader -->
+        <div class="loader-wrapper">
+          <div class="loader">
+              <svg viewBox="0 0 80 80">
+                  <circle id="test" cx="40" cy="40" r="32"></circle>
+              </svg>
+          </div>
+          
+          <div class="loader triangle">
+              <svg viewBox="0 0 86 80">
+                  <polygon points="43 8 79 72 7 72"></polygon>
+              </svg>
+          </div>
+          
+          <div class="loader">
+              <svg viewBox="0 0 80 80">
+                  <rect x="8" y="8" width="64" height="64"></rect>
+              </svg>
+          </div>
+        </div>
+        <!-- Preloader End -->
         <!-- Navbar Start -->
         <nav class="navbar navbar-expand-lg fixed-top" style="background:transparent;">
           <div class="container">
@@ -47,28 +69,6 @@
           </div>
         </nav>
         <!-- Navbar End -->
-
-        <!-- Preloader -->
-        <div class="loader-wrapper">
-          <div class="loader">
-              <svg viewBox="0 0 80 80">
-                  <circle id="test" cx="40" cy="40" r="32"></circle>
-              </svg>
-          </div>
-          
-          <div class="loader triangle">
-              <svg viewBox="0 0 86 80">
-                  <polygon points="43 8 79 72 7 72"></polygon>
-              </svg>
-          </div>
-          
-          <div class="loader">
-              <svg viewBox="0 0 80 80">
-                  <rect x="8" y="8" width="64" height="64"></rect>
-              </svg>
-          </div>
-        </div>
-        <!-- Preloader End -->
 
         <!-- First container -->
         <div id="hero">
@@ -162,29 +162,42 @@
               </div>
         </div>
 
+        <!-- jquery -->
+        <script src="https://code.jquery.com/jquery-3.6.2.js" integrity="sha256-pkn2CUZmheSeyssYw3vMp1+xyub4m+e+QK4sQskvuo4=" crossorigin="anonymous"></script>
       <!-- transparent navbar  -->
       <script type="text/javascript">
-        var nav = document.querySelector('nav');
-        window.addEventListener('scroll', function () {
-          if (window.pageYOffset > 100) {
-            nav.style.backgroundColor = '#143642';
-            nav.style.boxShadow = '2px 2px 5px #000';
-          } else {
-            nav.style.backgroundColor = 'transparent';
-            nav.style.boxShadow = 'none';
+        $(window).on('load', function(){
+          //Show loader wrapper
+          $('.loader-wrapper').show();
+        
+          //Hide navbar and disable scrolling
+          $('nav').hide();
+          $('body').css('overflow', 'hidden');
+        
+          // After 2 seconds, hide loader wrapper and re-enable scrolling
+          setTimeout(function(){
+            $('.loader-wrapper').hide();
+            $('nav').show();
+            $('body').css('overflow', 'visible');
+          }, 2000);
+        });
+        
+        // Show navbar and change color/box shadow when page is scrolled
+        $(window).on('scroll', function(){
+          if ($('.loader-wrapper').css('display') === 'none') {
+            if (window.pageYOffset > 100) {
+              $('nav').show();
+              $('nav').css('background-color', '#143642');
+              $('nav').css('box-shadow', '2px 2px 5px #000');
+            } else {
+              $('nav').show();
+              $('nav').css('background-color', 'transparent');
+              $('nav').css('box-shadow', 'none');
+            }
           }
         });
       </script>
       <!-- end -->
-      <script src="https://code.jquery.com/jquery-3.6.2.js" integrity="sha256-pkn2CUZmheSeyssYw3vMp1+xyub4m+e+QK4sQskvuo4=" crossorigin="anonymous"></script>
-      <!-- Preloader Js -->
-      <script>
-        $(window).on("load",function(){
-          setTimeout(function(){
-            $(".loader-wrapper").fadeOut("slow");
-          }, 1500);
-        })
-      </script>
       <!-- Prelooader Ends -->
         <!-- Bootstrap Bundle with Popper -->
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

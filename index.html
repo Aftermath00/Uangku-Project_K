@@ -168,10 +168,10 @@
       <script type="text/javascript">
         $(window).on('load', function(){
           //Show loader wrapper
+          $('nav').hide();
           $('.loader-wrapper').show();
         
           //Hide navbar and disable scrolling
-          $('nav').hide();
           $('body').css('overflow', 'hidden');
         
           // After 2 seconds, hide loader wrapper and re-enable scrolling

@@ -22,6 +22,7 @@
 }
 nav {
   left: 120%;
+  display: none;
 }
 .navbar {
   float: none;

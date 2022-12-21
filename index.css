@@ -22,7 +22,7 @@
 }
 nav {
   left: 120%;
-  display: none;
+  display: relative;
 }
 .navbar {
   float: none;
@@ -326,7 +326,7 @@ nav .navbar-brand:hover {
   z-index: 2;
 }
 .section:hover {
-  flex: 2;
+  flex: 3;
 }
 .section:hover .overlay {
   background-color: rgba(0, 0, 0, 0.25);

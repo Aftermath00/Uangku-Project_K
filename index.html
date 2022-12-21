@@ -176,7 +176,7 @@
         
           // After 2 seconds, hide loader wrapper and re-enable scrolling
           setTimeout(function(){
-            $('.loader-wrapper').hide();
+            $('.loader-wrapper').fadeOut();
             $('nav').show();
             $('body').css('overflow', 'visible');
           }, 2000);

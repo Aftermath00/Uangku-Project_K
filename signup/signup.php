@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>UangKu | Login Page</title>
+    <title>UangKu | Sign Up Page</title>
     <link rel="icon" href="img/uangku.jpeg" type="image/x-icon" />
-    <link rel="stylesheet" href="login.css" />
+    <link rel="stylesheet" href="signup.css" />
   </head>
   <body>
     <!-- Preloader -->
@@ -33,22 +33,25 @@
     <div class="container">
       <div class="drop">
         <div class="content">
-          <h2>Sign In</h2>
-          <form action="">
+          <h2>Sign Up</h2>
+          <form action="signup_process.php" method="post"> 
             <div class="inputBox">
-              <input type="text" placeholder="username" />
+              <input type="email" placeholder="Email" name="signup_email" required/>
             </div>
             <div class="inputBox">
-              <input type="text" placeholder="password" />
+              <input type="text" placeholder="Username" name="signup_username" required/>
             </div>
             <div class="inputBox">
-              <input type="submit" value="Login" />
+              <input type="password" placeholder="Password" name="signup_password" required />
+            </div>
+            <div class="inputBox">
+              <input type="submit" value="Sign Up" name="signup" />
             </div>
           </form>
         </div>
       </div>
-      <a href="signup.html" class="buttons">Sign Up</a>
-      <a href="index.html" class="home-buttons">Home</a>
+      <a href="../signin/signin.php" class="buttons">Sign In</a>
+      <a href="../index.php" class="home-buttons">Home</a>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.2.js" integrity="sha256-pkn2CUZmheSeyssYw3vMp1+xyub4m+e+QK4sQskvuo4=" crossorigin="anonymous"></script>

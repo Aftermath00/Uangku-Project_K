@@ -1,0 +1,20 @@
+    $sqlCekEmailinUser = "SELECT user_email FROM user WHERE user_username = '$username'";
+    $cekEmailinUser = mysqli_query($connection, $sqlCekEmailinUser);
+    $datacekEmailinUser = mysqli_fetch_array($cekEmailinUser);  
+
+    if ($datacekEmailinUser['user_email'] != $input_email){
+     $sqlEditUser = "UPDATE user SET
+     user_email = '$input_email',
+     WHERE user_username = '$username'";
+     $update_user = mysqli_query($connection, $sqlEditUser);
+    }
+
+     $sqlEditProfil = "UPDATE profil SET
+     nama_lengkap = '$input_nama_legkap',
+     tanggal_lahir = '$input_tgl_lahir',
+     jenis_kelamin = '$input_gender',
+     pekerjaan = '$input_pekerjaan',
+     batas_pengeluaran = '$input_batas_pengeluaran'
+     WHERE email = '$input_email'";
+     $update_profil = mysqli_query($connection, $sqlEditProfil);
+

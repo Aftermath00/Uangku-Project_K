@@ -1,10 +1,19 @@
+<?php
+     session_start();
+    
+     if(isset($_SESSION ['session_username'])){
+          $username = $_SESSION ['session_username'];
+     }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="spending.css" />
     <title>UangKu | Add Spending</title>
-    <link rel="icon" href="img/uangku.jpeg" type="image/x-icon" />
+    <link rel="icon" href="../img/uangku.jpeg" type="image/x-icon" />
     <!-- Boxicons CDN Link -->
     <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,47 +21,47 @@
   <body>
     <div class="sidebar">
       <div class="logo-details">
-        <div class="logo_name"><img src="img/uangku.jpeg" class="uangku" />UangKu</div>
+        <div class="logo_name"><img src="../img/uangku.jpeg" class="uangku" />UangKu</div>
         <i class="bx bx-menu" id="btn"></i>
       </div>
       <ul class="nav-list">
         <li>
-          <a href="main.html">
+          <a href="../dashboard/home.php">
             <i class="bx bx-grid-alt"></i>
             <span class="links_name">Dashboard</span>
           </a>
           <span class="tooltip">Dashboard</span>
         </li>
         <li>
-          <a href="profile.html">
+          <a href="../profile/profile.php">
             <i class="bx bx-user"></i>
             <span class="links_name">Profile</span>
           </a>
           <span class="tooltip">Profile</span>
         </li>
         <li>
-          <a href="spending.html" class="active">
+          <a href="../add/spending.php" class="active">
             <i class='bx bx-money' ></i>
             <span class="links_name">Add Spending</span>
           </a>
           <span class="tooltip">Add Spending</span>
         </li>
         <li>
-          <a href="income.html">
+          <a href="../add/income.php">
             <i class='bx bx-wallet'></i>
             <span class="links_name">Add Income</span>
           </a>
           <span class="tooltip">Add Income</span>
         </li>
         <li>
-          <a href="stats.html">
+          <a href="../stats/stats.php">
             <i class="bx bx-bar-chart-alt-2"></i>
             <span class="links_name">My Stats</span>
           </a>
           <span class="tooltip">My Stats</span>
         </li>
         <li>
-            <a href="login.html">
+            <a href="../logout/logout_process.php">
               <i class="bx bx-log-out" id="log_out"></i>
               <span class="links_name">Log Out</span>
             </a>
@@ -61,7 +70,7 @@
         <li class="profile">
           <div class="profile-details">
             <div class="name_job">
-              <div class="name">Rafly Tolol</div>
+              <div class="name"><?php echo $username ?></div>
             </div>
           </div>
         </li>
@@ -80,7 +89,7 @@
         <body>
           <div class="container">
             <header>Add Spending</header>
-            <form action="#">
+            <form action="spending_addProcess.php" method="post">
               <div class="form first">
                 <div class="details personal">
                   <span class="title">Spending Details</span>
@@ -88,31 +97,31 @@
                   <div class="fields">
                     <div class="input-field">
                       <label>Spending Description</label>
-                      <input type="text" placeholder="Enter Description" required />
+                      <input type="text" placeholder="Enter Description" name="ket_pengeluaran" required />
                     </div>
                     <div class="input-field">
                       <label>Spending Category</label>
-                      <select required>
+                      <select name="kategori_pengeluaran" required>
                         <option disabled selected>Select category</option>
-                        <option>Food</option>
-                        <option>Household Needs</option>
-                        <option>Clothing</option>
-                        <option>Education</option>
-                        <option>Others</option>
+                        <option value="Food">Food</option>
+                        <option value="Household Needs">Household Needs</option>
+                        <option value="Clothing">Clothing</option>
+                        <option value="Education">Education</option>
+                        <option value="Others">Others</option>
                       </select>
                     </div>
                     <div class="input-field">
                       <label>Date of Spending</label>
-                      <input type="date" placeholder="Enter Spending's Date" required />
+                      <input type="date" placeholder="Enter Spending's Date" name="tgl_pengeluaran" required />
                     </div>
 
                     <div class="input-field">
                       <label>Spending Amount</label>
-                      <input type="number" placeholder="Enter Amount" required />
+                      <input type="number" placeholder="Enter Amount" name="nominal_pengeluaran" required />
                     </div>
                   </div>
                 </div>
-                <button>
+                <button type="submit" name="tambah">
                   <svg height="36px" width="36px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
                       <rect fill="#ff6b6b" y="0" x="0" height="36" width="36"></rect>
                       <path d="M38.67,42H11.52C11.27,40.62,11,38.57,11,36c0-5,0-11,0-11s1.44-7.39,3.22-9.59 c1.67-2.06,2.76-3.48,6.78-4.41c3-0.7,7.13-0.23,9,1c2.15,1.42,3.37,6.67,3.81,11.29c1.49-0.3,5.21,0.2,5.5,1.28 C40.89,30.29,39.48,38.31,38.67,42z" fill="#ffd6ba"></path>

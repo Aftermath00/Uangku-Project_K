@@ -77,7 +77,7 @@
         <li class="profile">
           <div class="profile-details">
             <div class="name_job">
-              <div class="name"><?php echo $username ?></div>
+              <div class="name">Halo, <?php echo $username ?>!</div>
             </div>
           </div>
         </li>

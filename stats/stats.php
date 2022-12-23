@@ -50,7 +50,7 @@
           <span class="tooltip">Profile</span>
         </li>
         <li>
-          <a href="../add/spending.css">
+          <a href="../add/spending.php">
             <i class="bx bx-money"></i>
             <span class="links_name">Add Spending</span>
           </a>
@@ -88,19 +88,27 @@
     </div>
     <section class="home-section">
       <div class="text">This is My Stats Page</div>
-
-      <div class="tables">
-        <div class="income">
-          <h5>Income</h5>
-          <table class="table table-striped" style="text-align: center; ">
-                <thead class="table-dark">
-                    <th>No.</th>
-                    <th>Tanggal</th>
-                    <th>Keterangan</th>
-                    <th>Kategori</th>
-                    <th>Nominal</th>
-                    <th>Opsi</th>
-                </thead>
+      <div class="container-xl">
+                    <div class="table-responsive">
+                        <div class="table-wrapper">
+                            <div class="table-title">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <h2>Income Stats</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <table class="table table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>No.</th>
+                                        <th>Date</th>
+                                        <th>Description
+                                        <th>Category</th>
+                                        <th>Amount</th>
+                                        <th>Option</th>
+                                    </tr>
+                                </thead>
                 <?php
 
                     while ($tampilkanPemasukan = mysqli_fetch_array($dataPemasukan)) { 
@@ -124,17 +132,27 @@
             </table>
           
         </div>
-        <div class="spending">
-          <h5>Spending</h5>
-          <table class="table table-striped" style="text-align: center; ">
-                <thead class="table-dark">
-                    <th>No.</th>
-                    <th>Tanggal</th>
-                    <th>Keterangan</th>
-                    <th>Kategori</th>
-                    <th>Nominal</th>
-                    <th>Opsi</th>
-                </thead>
+        <div class="container-xl">
+                    <div class="table-responsive">
+                        <div class="table-wrapper">
+                            <div class="table-title">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <h2>Spending Stats</b></h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <table class="table table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>No.</th>
+                                        <th>Date</th>
+                                        <th>Description
+                                        <th>Category</th>
+                                        <th>Amount</th>
+                                        <th>Option</th>
+                                    </tr>
+                                </thead>
                 <?php
 
                     while ($tampilkanPengeluaran = mysqli_fetch_array($dataPengeluaran)) { 
@@ -159,8 +177,7 @@
 
         </div>
       </div>
-
-
+      </div>
     </section>
     <script>
       let sidebar = document.querySelector(".sidebar");

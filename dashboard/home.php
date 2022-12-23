@@ -79,7 +79,31 @@
       </ul>
     </div>
     <section class="home-section">
-      <div class="text">This is Dashboard</div>
+      <div class="text">Welcome to Uangku, <?php echo $username ?>.</div>
+      <div class="insights">
+        <div class="sales">
+        <div class="row">
+        <div class="card card-1">
+                <div class="card-header">
+                  <h3><i class="bx bx-money"></i> Total Spending</h3>
+                </div>
+                <div class="card-body">
+                  <h1>?????</h1>
+                </div>
+              </div>
+              <div class="card card-2">
+                <div class="card-header">
+                  <h3><i class="bx bx-wallet"></i> Total Income</h3>
+                </div>
+                <div class="card-body">
+                  <h1>???????</h1>
+                </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+
     </section>
     <script>
       let sidebar = document.querySelector(".sidebar");

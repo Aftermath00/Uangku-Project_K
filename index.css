@@ -326,7 +326,8 @@ nav .navbar-brand:hover {
   z-index: 2;
 }
 .section:hover {
-  flex: 3;
+  flex: 1.5;
+  transition: flex 0.4s ease;
 }
 .section:hover .overlay {
   background-color: rgba(0, 0, 0, 0.25);

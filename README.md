@@ -1,7 +1,6 @@
 # Uangku-ProjectUAS Laboratory 5
 
-We're tryna make a website to assist us to be easier for managing and tracking our financial spending and income.
-The website called "UangKu". The idea of this website was showed up due to our concern about managing our own financial problem.
+We are developing a website, "UangKu," to help us more easily manage and track our financial spending and income. We came up with this solution out of concern for the difficulties associated with managing our own finances. We want to ensure that our website, "UangKu," is the best solution to our financial management and tracking needs. With its intuitive design, comprehensive tools and secure platform, we are confident that it will provide a comprehensive and efficient way for users to manage their finances.
 
 ## Technology
 

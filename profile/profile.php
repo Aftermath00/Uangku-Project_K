@@ -6,13 +6,14 @@
           $username = $_SESSION ['session_username'];
      }
 
-     $sqlDataUser = "SELECT user_email FROM user WHERE user_username = '$username'";
+     $sqlDataUser = "SELECT * FROM user WHERE user_username = '$username'";
      $dataUser = mysqli_query($connection, $sqlDataUser);
      $tampilkanDataUser = mysqli_fetch_array($dataUser);  
      
      $sqlDataProfil = "SELECT * FROM profil WHERE email = '$tampilkanDataUser[user_email]'";
      $dataProfil = mysqli_query($connection, $sqlDataProfil);
-     $tampilkanDataProfil = mysqli_fetch_assoc($dataProfil);  
+     $tampilkanDataProfil = mysqli_fetch_assoc($dataProfil);
+  
 
 ?>
 
@@ -109,11 +110,14 @@
               <div class="form first">
                 <div class="details personal">
                   <span class="title">Personal Details</span>
-
                   <div class="fields">
                     <div class="input-field">
                       <label>Full Name</label>
-                      <input type="text" placeholder="Enter your name" value="<?php echo $tampilkanDataProfil['nama_lengkap'];?>" name="nama_lengkap" required />
+                      <input type="text" placeholder="Enter your name" value="<?php 
+                      if(isset($tampilkanDataProfil['nama_lengkap'])){
+                        echo $tampilkanDataProfil['nama_lengkap'];
+                      }
+                      ?>" name="nama_lengkap" required />
                     </div>
 
                     <div class="input-field">
@@ -135,20 +139,31 @@
                       <label>Gender</label>
                       <select name="gender" required>
                         <option disabled selected>Select gender</option>
-                        <option value="Male" <?php if ($tampilkanDataProfil['jenis_kelamin'] == 'Male') {
-                                    echo 'selected';
-                                  } ?>>Male</option>
+                        <option value="Male" <?php 
+                        if(isset($tampilkanDataProfil['jenis_kelamin'])){
+                          if ($tampilkanDataProfil['jenis_kelamin'] == 'Male') {
+                            echo 'selected';
+                          }
+                        } 
+                        ?>>Male</option>
 
-
-                        <option value="Female" <?php if ($tampilkanDataProfil['jenis_kelamin'] == 'Female') {
-                                    echo 'selected';
-                                  } ?>>Female</option>
+                        <option value="Female" <?php 
+                        if(isset($tampilkanDataProfil['jenis_kelamin'])){
+                          if ($tampilkanDataProfil['jenis_kelamin'] == 'Female') {
+                            echo 'selected';
+                          }
+                        }                   
+                         ?>>Female</option>
                       </select>
                     </div>
 
                     <div class="input-field">
                       <label>Occupation</label>
-                      <input type="text" placeholder="Enter your occupation" value="<?php echo $tampilkanDataProfil['pekerjaan'];?>" name="pekerjaan" required />
+                      <input type="text" placeholder="Enter your occupation" value="<?php
+                      if(isset($tampilkanDataProfil['pekerjaan'])){
+                        echo $tampilkanDataProfil['pekerjaan'];
+                      } ?>"
+                      name="pekerjaan" required />
                     </div>
                   </div>
                 </div>

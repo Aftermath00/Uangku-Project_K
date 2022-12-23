@@ -95,13 +95,20 @@
                 <div class="card-body">
                   <h1><?php 
                     $totalFix_pengeluaran = 0;
-                    while ($tampilkanTotalPengeluaran = mysqli_fetch_array($totalPengeluaran)) { 
-                         $total_pengeluaran[] = $tampilkanTotalPengeluaran; 
-                    } 
 
-                    for($i=0; $i < sizeof($total_pengeluaran); $i++) { 
-                         $totalFix_pengeluaran += $total_pengeluaran[$i]['nominal_pengeluaran'];
-                    }   
+                    if(mysqli_num_rows($totalPengeluaran) > 0){
+                      while ($tampilkanTotalPengeluaran = mysqli_fetch_array($totalPengeluaran)) { 
+                        $total_pengeluaran[] = $tampilkanTotalPengeluaran; 
+                      } 
+                     
+                      for($i=0; $i < sizeof($total_pengeluaran); $i++) { 
+                        $totalFix_pengeluaran += $total_pengeluaran[$i]['nominal_pengeluaran'];
+                      }   
+                    }
+                    else{
+                      $totalFix_pengeluaran = 0;
+                    }
+                                  
                     echo 'Rp ', $totalFix_pengeluaran;                                        
                ;?></h1>
                 </div>
@@ -113,13 +120,19 @@
                 <div class="card-body">
                   <h1><?php 
                     $totalFix_pemasukan = 0;
-                    while ($tampilkanTotalPemasukan = mysqli_fetch_array($totalPemasukan)) { 
-                         $total_pemasukan[] = $tampilkanTotalPemasukan; 
-                    } 
 
-                    for($i=0; $i < sizeof($total_pemasukan); $i++) { 
-                         $totalFix_pemasukan += $total_pemasukan[$i]['nominal_pemasukan'];
-                    }   
+                    if(mysqli_num_rows($totalPemasukan) > 0){
+                      while ($tampilkanTotalPemasukan = mysqli_fetch_array($totalPemasukan)) { 
+                           $total_pemasukan[] = $tampilkanTotalPemasukan; 
+                      } 
+  
+                      for($i=0; $i < sizeof($total_pemasukan); $i++) { 
+                           $totalFix_pemasukan += $total_pemasukan[$i]['nominal_pemasukan'];
+                      }   
+                    }
+                    else{
+                      $totalFix_pemasukan = 0;
+                    }
                     echo 'Rp ', $totalFix_pemasukan;                                        
                ;?></h1>
                 </div>

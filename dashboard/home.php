@@ -61,7 +61,7 @@
           <span class="tooltip">Add Income</span>
         </li>
         <li>
-          <a href="../stats/stat.php">
+          <a href="../stats/stats.php">
             <i class="bx bx-bar-chart-alt-2"></i>
             <span class="links_name">My Stats</span>
           </a>

@@ -6,7 +6,8 @@
           $username = $_SESSION ['session_username'];
      }
 
-     $no = 1;
+     $no_pemasukan = 1;
+     $no_pengeluaran = 1;
 
      $sqlDataPemasukan = "SELECT id_pemasukan, tgl_pemasukan, ket_pemasukan, kategori_pemasukan, nominal_pemasukan FROM pemasukan WHERE username_pemasukan = '$username' ORDER BY tgl_pemasukan ASC";
      $dataPemasukan = mysqli_query($connection, $sqlDataPemasukan);
@@ -19,13 +20,12 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="stats.css" />
+    <link rel="stylesheet" href="statistics.css" />
     <title>UangKu | My Statistic</title>
     <link rel="icon" href="../img/uangku.jpeg" type="image/x-icon" />
     <!-- Boxicons CDN Link -->
     <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
-     <!-- Bootstrap CSS -->
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
@@ -64,7 +64,7 @@
           <span class="tooltip">Add Income</span>
         </li>
         <li>
-          <a href="../stats/stats.php" class="active">
+          <a href="../edit/edit.php" class="active">
             <i class="bx bx-bar-chart-alt-2"></i>
             <span class="links_name">My Stats</span>
           </a>
@@ -87,9 +87,11 @@
       </ul>
     </div>
     <section class="home-section">
-      <div class="text">This is My Stats Page</div>
+      <br>
+      <br>
+      <br>
       <div class="container-xl">
-                    <div class="table-responsive">
+                <div class="table-responsive">
                         <div class="table-wrapper">
                             <div class="table-title">
                                 <div class="row">
@@ -115,24 +117,25 @@
 
                 ?>
                 <tr>
-                    <td><?php echo $no++; ?></td>
+                    <td><?php echo $no_pemasukan++; ?></td>
                     <td><?php echo $tampilkanPemasukan['tgl_pemasukan']; ?></td>
                     <td><?php echo $tampilkanPemasukan['ket_pemasukan']; ?></td>
                     <td><?php echo $tampilkanPemasukan['kategori_pemasukan']; ?></td>
                     <td><?php echo $tampilkanPemasukan['nominal_pemasukan']; ?></td>
                     <td>
                         <?php $id_row = $tampilkanPemasukan['id_pemasukan'];?>
-                        <a href="#?id=<?php echo $id_row;?>">Edit</a>
-                        <a href="../delete/deleteIncome_process.php?id=<?php echo $id_row;?>">Hapus</a>
+                        <a href="edit.php?id=<?php echo $id_row;?>"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                        <a href="../delete/deleteIncome_process.php?id=<?php echo $id_row;?>"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                     </td>
                 </tr>
                 <?php
                 }
                 ?>
             </table>
-          
-        </div>
-        <div class="container-xl">
+                  </div>
+                  </div>
+                  <br>
+                  <br>
                     <div class="table-responsive">
                         <div class="table-wrapper">
                             <div class="table-title">
@@ -159,15 +162,15 @@
 
                 ?>
                 <tr>
-                    <td><?php echo $no++; ?></td>
+                    <td><?php echo $no_pengeluaran++; ?></td>
                     <td><?php echo $tampilkanPengeluaran['tgl_pengeluaran']; ?></td>
                     <td><?php echo $tampilkanPengeluaran['ket_pengeluaran']; ?></td>
                     <td><?php echo $tampilkanPengeluaran['kategori_pengeluaran']; ?></td>
                     <td><?php echo $tampilkanPengeluaran['nominal_pengeluaran']; ?></td>
                     <td>
                         <?php $id_row = $tampilkanPengeluaran['id_pengeluaran'];?>
-                        <a href="#?id=<?php echo $id_row;?>">Edit</a>
-                        <a href="../delete/deleteSpending_process.php?id=<?php echo $id_row;?>">Hapus</a>
+                        <a href="#?id=<?php echo $id_row;?>"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                        <a href="../delete/deleteSpending_process.php?id=<?php echo $id_row;?>"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                     </td>
                 </tr>
                 <?php
@@ -205,7 +208,6 @@
       }
     </script>
   <!-- Bootstrap Bundle with Popper -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   
 </body>  
 </html>

@@ -107,7 +107,7 @@
             </div>
             <div id="advertising" class="section">
               <div class="content">
-                <h1>rafly tolol</h1>
+                <h1>Spending/Income Update</h1>
               </div>
               <div class="overlay"></div>
             </div>

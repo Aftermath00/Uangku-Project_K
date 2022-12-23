@@ -333,13 +333,13 @@ nav .navbar-brand:hover {
   background-color: rgba(0, 0, 0, 0.25);
 }
 #marketing {
-  background-image: url(img/azmi.jpg);
+  background-image: url(img/track.jpeg);
 }
 #technology {
   background-image: url(img/uangku.jpeg);
 }
 #advertising {
-  background-image: url(img/rafly.jpeg);
+  background-image: url(img/spending.jpeg);
 }
 
 /* Cards in founder */

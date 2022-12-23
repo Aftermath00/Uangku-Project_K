@@ -1,12 +1,17 @@
 <?php
+    include '../connection.php';
      session_start();
     
      if(isset($_SESSION ['session_username'])){
           $username = $_SESSION ['session_username'];
      }
-     else{
-          echo "<script>window.location = '../signin/signin.php'</script>";
-     }
+
+     $sqlTotalPengeluaran = "SELECT nominal_pengeluaran FROM pengeluaran WHERE username_pengeluaran = '$username'";
+     $totalPengeluaran = mysqli_query($connection, $sqlTotalPengeluaran);
+     
+     $sqlTotalPemasukan = "SELECT nominal_pemasukan FROM pemasukan WHERE username_pemasukan = '$username'";
+     $totalPemasukan = mysqli_query($connection, $sqlTotalPemasukan);
+
 ?>
 
 <!DOCTYPE html>
@@ -88,7 +93,17 @@
                   <h3><i class="bx bx-money"></i> Total Spending</h3>
                 </div>
                 <div class="card-body">
-                  <h1>?????</h1>
+                  <h1><?php 
+                    $totalFix_pengeluaran = 0;
+                    while ($tampilkanTotalPengeluaran = mysqli_fetch_array($totalPengeluaran)) { 
+                         $total_pengeluaran[] = $tampilkanTotalPengeluaran; 
+                    } 
+
+                    for($i=0; $i < sizeof($total_pengeluaran); $i++) { 
+                         $totalFix_pengeluaran += $total_pengeluaran[$i]['nominal_pengeluaran'];
+                    }   
+                    echo 'Rp ', $totalFix_pengeluaran;                                        
+               ;?></h1>
                 </div>
               </div>
               <div class="card card-2">
@@ -96,7 +111,17 @@
                   <h3><i class="bx bx-wallet"></i> Total Income</h3>
                 </div>
                 <div class="card-body">
-                  <h1>???????</h1>
+                  <h1><?php 
+                    $totalFix_pemasukan = 0;
+                    while ($tampilkanTotalPemasukan = mysqli_fetch_array($totalPemasukan)) { 
+                         $total_pemasukan[] = $tampilkanTotalPemasukan; 
+                    } 
+
+                    for($i=0; $i < sizeof($total_pemasukan); $i++) { 
+                         $totalFix_pemasukan += $total_pemasukan[$i]['nominal_pemasukan'];
+                    }   
+                    echo 'Rp ', $totalFix_pemasukan;                                        
+               ;?></h1>
                 </div>
                   </div>
                 </div>

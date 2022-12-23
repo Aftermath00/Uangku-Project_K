@@ -1,23 +1,31 @@
 <?php
+    include '../connection.php';
      session_start();
     
      if(isset($_SESSION ['session_username'])){
           $username = $_SESSION ['session_username'];
      }
-     else{
-          echo "<script>window.location = '../signin/signin.php'</script>";
-     }
+
+     $no = 1;
+
+     $sqlDataPemasukan = "SELECT id_pemasukan, tgl_pemasukan, ket_pemasukan, kategori_pemasukan, nominal_pemasukan FROM pemasukan WHERE username_pemasukan = '$username' ORDER BY tgl_pemasukan ASC";
+     $dataPemasukan = mysqli_query($connection, $sqlDataPemasukan);
+
+     $sqlDataPengeluaran = "SELECT id_pengeluaran, tgl_pengeluaran, ket_pengeluaran, kategori_pengeluaran, nominal_pengeluaran FROM pengeluaran WHERE username_pengeluaran = '$username' ORDER BY tgl_pengeluaran ASC";
+     $dataPengeluaran = mysqli_query($connection, $sqlDataPengeluaran);
 ?>
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="home.css" />
-    <title>UangKu | Dashboard</title>
+    <link rel="stylesheet" href="stat.css" />
+    <title>UangKu | My Statistic</title>
     <link rel="icon" href="../img/uangku.jpeg" type="image/x-icon" />
     <!-- Boxicons CDN Link -->
     <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
+     <!-- Bootstrap CSS -->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
@@ -28,7 +36,7 @@
       </div>
       <ul class="nav-list">
         <li>
-          <a href="home.php" class="active">
+          <a href="../dashboard/home.php">
             <i class="bx bx-grid-alt"></i>
             <span class="links_name">Dashboard</span>
           </a>
@@ -56,17 +64,17 @@
           <span class="tooltip">Add Income</span>
         </li>
         <li>
-          <a href="../stats/stat.php">
+          <a href="../stats/stats.php" class="active">
             <i class="bx bx-bar-chart-alt-2"></i>
             <span class="links_name">My Stats</span>
           </a>
           <span class="tooltip">My Stats</span>
         </li>
         <li>
-            <a href="../logout/logout_process.php">
-              <i class="bx bx-log-out" id="log_out"></i>
-              <span class="links_name">Log Out</span>
-            </a>
+          <a href="../logout/logout_process.php">
+            <i class="bx bx-log-out" id="log_out"></i>
+            <span class="links_name">Log Out</span>
+          </a>
           <span class="tooltip">Log Out</span>
         </li>
         <li class="profile">
@@ -79,31 +87,8 @@
       </ul>
     </div>
     <section class="home-section">
-      <div class="text">Welcome to Uangku, <?php echo $username ?>.</div>
-      <div class="insights">
-        <div class="sales">
-        <div class="row">
-        <div class="card card-1">
-                <div class="card-header">
-                  <h3><i class="bx bx-money"></i> Total Spending</h3>
-                </div>
-                <div class="card-body">
-                  <h1>?????</h1>
-                </div>
-              </div>
-              <div class="card card-2">
-                <div class="card-header">
-                  <h3><i class="bx bx-wallet"></i> Total Income</h3>
-                </div>
-                <div class="card-body">
-                  <h1>???????</h1>
-                </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-        </div>
-
+      <div class="text">This is My Stats Page</div>
+      
     </section>
     <script>
       let sidebar = document.querySelector(".sidebar");
@@ -114,6 +99,13 @@
         sidebar.classList.toggle("open");
         menuBtnChange(); //calling the function(optional)
       });
+
+      searchBtn.addEventListener("click", () => {
+        // Sidebar open when you click on the search iocn
+        sidebar.classList.toggle("open");
+        menuBtnChange(); //calling the function(optional)
+      });
+
       // following are the code to change sidebar button(optional)
       function menuBtnChange() {
         if (sidebar.classList.contains("open")) {
@@ -123,5 +115,8 @@
         }
       }
     </script>
-  </body>
+  <!-- Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  
+</body>  
 </html>

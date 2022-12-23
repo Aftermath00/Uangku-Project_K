@@ -1,43 +1,13 @@
 <?php
-  include '../connection.php';
-  
-  $id = $_GET['id'];
-  $sqlData = "SELECT * FROM employee WHERE id='$id'";
-  $data= mysqli_query($con, $sqlData);
-  if (mysqli_num_rows($data) == 0) {
-      echo '<script>window.history.back()</script>';
-  } else {
-      $r2 = mysqli_fetch_assoc($data);
-  }
-
-  $error = '';
-  $sukses = '';
-
-  if($r2) {
-    if (isset($_POST['simpan'])) {
-      $name        = $_POST['name'];
-      $birthdate   = $_POST['birthdate'];
-      $email       = $_POST['email'];
-      $role        = $_POST['role'];
-      $gender      = $_POST['gender'];
-    
-      if ($name && $birthdate && $email && $role && $gender) {
-          $sql1   = "update employee set `name`='$name',`birthdate`='$birthdate',`email`='$email',`role`='$role',`gender`='$gender' where id='$id'";
-          $q1     = mysqli_query($con, $sql1);
-          if ($q1) {
-              $sukses     = "Berhasil update data";
-          } else {
-              $error      = "Gagal update data";
-          }
-      } else {
-          $error = "Silakan masukkan semua data";
-      }
-    }
-  } else {
-    header('Location: edit.php');
-    
-  }
-
+     include '../connection.php';
+     session_start();
+     if(isset($_SESSION ['session_username'])){
+          $username = $_SESSION ['session_username'];
+     }
+     $id_edit = $_GET['id'];
+     $sqlDataEdit = "SELECT * FROM pemasukan WHERE username_pemasukan = '$username' AND id_pemasukan = '$id_edit'";
+     $dataEdit = mysqli_query($connection, $sqlDataEdit);
+     $tampilkanDataEdit = mysqli_fetch_array($dataEdit);     
 ?>
 
 <!DOCTYPE html>
@@ -112,28 +82,7 @@
     <section class="home-section">
           <div class="container">
             <header>Edit </header>
-            <?php
-                if ($error) {
-                ?>
-                    <div class="alert alert-danger" role="alert">
-                        <?php echo $error ?>
-                    </div>
-                <?php
-                    header("refresh:5;url=add.php");//5 : detik
-                }
-                ?>
-
-                <?php
-                if ($sukses) {
-                ?>
-                    <div class="alert alert-success" role="alert">
-                        <?php echo $sukses ?>
-                    </div>
-                <?php
-                    header("refresh:5;url=add.php");
-                }
-            ?>
-            <form action="income_addProcess.php" method="post">
+            <form action="edit_incomeProcess.php?id=<?php echo $id_edit?>" method="post">
               <div class="form first">
                 <div class="details personal">
                   <span class="title">Income Details</span>
@@ -141,30 +90,38 @@
                   <div class="fields">
                     <div class="input-field">
                       <label>Income Description</label>
-                      <input type="text" placeholder="Enter Description" name="ket_pemasukan" required />
+                      <input type="text" placeholder="Enter Description" name="ket_pemasukan" value="<?php echo $tampilkanDataEdit['ket_pemasukan'];?>" required />
                   </div>
                   <div class="input-field">
                     <label>Income Category</label>
                       <select name="kategori_pemasukan" required>
-                        <option disabled selected>Select category</option>
-                        <option value="Salary">Salary</option>
-                        <option value="Freelance Fee">Freelance Fee</option>
-                        <option value="Assets">Assets</option>
-                        <option value="Others">Others</option>
+                        <option disabled selected><?php echo $tampilkanDataEdit['kategori_pemasukan'] ?></option>
+                        <option value="Salary" <?php if ($tampilkanDataEdit['kategori_pemasukan'] == 'Salary') {
+                                    echo 'selected';
+                                  } ?>>Salary</option>
+                        <option value="Freelance Fee" <?php if ($tampilkanDataEdit['kategori_pemasukan'] == 'Freelance Fee') {
+                                    echo 'selected';
+                                  } ?>>Freelance Fee</option>
+                        <option value="Assets" <?php if ($tampilkanDataEdit['kategori_pemasukan'] == 'Assets') {
+                                    echo 'selected';
+                                  } ?>>Assets</option>
+                        <option value="Others" <?php if ($tampilkanDataEdit['kategori_pemasukan'] == 'Others') {
+                                    echo 'selected';
+                                  } ?>>Others</option>
                       </select>
                   </div>
                     <div class="input-field">
                       <label>Date of Income</label>
-                      <input type="date" placeholder="Enter Income's Date" name="tgl_pemasukan" required />
+                      <input type="date" placeholder="Enter Income's Date" name="tgl_pemasukan" value="<?php echo $tampilkanDataEdit['tgl_pemasukan'];?>"required />
                     </div>
 
                     <div class="input-field">
                       <label>Income Amount</label>
-                      <input type="number" placeholder="Enter Amount" name="nominal_pemasukan" required />
+                      <input type="number" placeholder="Enter Amount" name="nominal_pemasukan" value="<?php echo $tampilkanDataEdit['nominal_pemasukan'];?>"required />
                     </div>
                   </div>
                 </div>
-                <button type="submit" name="tambah">
+                <button type="submit" name="editIncome">
                   <svg height="36px" width="36px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
                       <rect fill="#468faf" y="0" x="0" height="36" width="36"></rect>
                       <path d="M38.67,42H11.52C11.27,40.62,11,38.57,11,36c0-5,0-11,0-11s1.44-7.39,3.22-9.59 c1.67-2.06,2.76-3.48,6.78-4.41c3-0.7,7.13-0.23,9,1c2.15,1.42,3.37,6.67,3.81,11.29c1.49-0.3,5.21,0.2,5.5,1.28 C40.89,30.29,39.48,38.31,38.67,42z" fill="#e53935"></path>

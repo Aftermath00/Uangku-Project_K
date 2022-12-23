@@ -123,9 +123,9 @@
                     <td><?php echo $tampilkanPemasukan['kategori_pemasukan']; ?></td>
                     <td><?php echo $tampilkanPemasukan['nominal_pemasukan']; ?></td>
                     <td>
-                        <?php $id_row = $tampilkanPemasukan['id_pemasukan'];?>
-                        <a href="edit.php?id=<?php echo $id_row;?>"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                        <a href="../delete/deleteIncome_process.php?id=<?php echo $id_row;?>"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                        <?php $id_row_pemasukan = $tampilkanPemasukan['id_pemasukan'];?>
+                        <a href="../edit/edit_income.php?id=<?php echo $id_row_pemasukan;?>"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                        <a href="../delete/deleteIncome_process.php?id=<?php echo $id_row_pemasukan;?>"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                     </td>
                 </tr>
                 <?php
@@ -168,9 +168,9 @@
                     <td><?php echo $tampilkanPengeluaran['kategori_pengeluaran']; ?></td>
                     <td><?php echo $tampilkanPengeluaran['nominal_pengeluaran']; ?></td>
                     <td>
-                        <?php $id_row = $tampilkanPengeluaran['id_pengeluaran'];?>
-                        <a href="#?id=<?php echo $id_row;?>"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                        <a href="../delete/deleteSpending_process.php?id=<?php echo $id_row;?>"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                        <?php $id_row_pengeluaran = $tampilkanPengeluaran['id_pengeluaran'];?>
+                        <a href="../edit/edit_spending.php?id=<?php echo $id_row_pengeluaran;?>"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                        <a href="../delete/deleteSpending_process.php?id=<?php echo $id_row_pengeluaran;?>"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                     </td>
                 </tr>
                 <?php

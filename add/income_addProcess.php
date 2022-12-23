@@ -6,7 +6,7 @@
      $input_username_pemasukan = $_SESSION ['session_username'];
   } 
 
-  if(isset($_POST['tambah'])) { 
+  if(isset($_POST['edit'])) { 
      include_once '../connection.php';
     $input_tgl_pemasukan = $_POST['tgl_pemasukan'];
     $input_ket_pemasukan = $_POST['ket_pemasukan'];

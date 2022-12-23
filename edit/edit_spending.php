@@ -14,7 +14,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="edit.css" />
+    <link rel="stylesheet" href="edited.css" />
     <title>UangKu | Edit </title>
     <link rel="icon" href="img/rolep.png" type="image/x-icon" />
     <!-- Boxicons CDN Link -->

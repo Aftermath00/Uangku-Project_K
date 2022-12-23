@@ -20,7 +20,7 @@
   top: 0;
   height: 100%;
   width: 78px;
-  background: #283618;
+  background: #11101d;
   padding: 6px 14px;
   z-index: 99;
   transition: all 0.5s ease;
@@ -115,7 +115,7 @@
   align-items: center;
   text-decoration: none;
   transition: all 0.4s ease;
-  background: #344e41;
+  background: #11101d;
 }
 .sidebar li .active {
   display: flex;
@@ -175,7 +175,7 @@
   bottom: -8px;
   padding: 10px 14px;
   transition-delay: 0.45s;
-  background: #6a994e;
+  background: #1d1b31;
   overflow: hidden;
   width: 250px;
 }
@@ -200,7 +200,7 @@
 }
 .home-section {
   position: relative;
-  background: #a4ac86;
+  background: #e4e9f7;
   min-height: 100vh;
   top: 0;
   left: 78px;

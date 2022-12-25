@@ -77,7 +77,7 @@
         <li class="profile">
           <div class="profile-details">
             <div class="name_job">
-              <div class="name">Halo, <?php echo $username ?>!</div>
+              <div class="name">Hello, <?php echo $username ?>!</div>
             </div>
           </div>
         </li>
@@ -109,7 +109,7 @@
                       $totalFix_pengeluaran = 0;
                     }
                                   
-                    echo 'Rp ', $totalFix_pengeluaran;                                        
+                    echo 'Rp', number_format($totalFix_pengeluaran, 0, ",", ".");                                   
                ;?></h1>
                 </div>
               </div>
@@ -133,7 +133,7 @@
                     else{
                       $totalFix_pemasukan = 0;
                     }
-                    echo 'Rp ', $totalFix_pemasukan;                                        
+                    echo 'Rp', number_format($totalFix_pemasukan, 0, ",", ".");                                       
                ;?></h1>
                 </div>
                   </div>

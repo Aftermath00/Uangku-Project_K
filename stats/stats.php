@@ -80,7 +80,7 @@
         <li class="profile">
           <div class="profile-details">
             <div class="name_job">
-              <div class="name"><?php echo $username ?></div>
+              <div class="name">Hello, <?php echo $username ?>!</div>
             </div>
           </div>
         </li>
@@ -121,7 +121,7 @@
                     <td><?php echo $tampilkanPemasukan['tgl_pemasukan']; ?></td>
                     <td><?php echo $tampilkanPemasukan['ket_pemasukan']; ?></td>
                     <td><?php echo $tampilkanPemasukan['kategori_pemasukan']; ?></td>
-                    <td><?php echo $tampilkanPemasukan['nominal_pemasukan']; ?></td>
+                    <td><?php echo number_format($tampilkanPemasukan['nominal_pemasukan'], 0,",", "."); ?></td>
                     <td>
                         <?php $id_row_pemasukan = $tampilkanPemasukan['id_pemasukan'];?>
                         <a href="../edit/edit_income.php?id=<?php echo $id_row_pemasukan;?>"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
@@ -166,7 +166,7 @@
                     <td><?php echo $tampilkanPengeluaran['tgl_pengeluaran']; ?></td>
                     <td><?php echo $tampilkanPengeluaran['ket_pengeluaran']; ?></td>
                     <td><?php echo $tampilkanPengeluaran['kategori_pengeluaran']; ?></td>
-                    <td><?php echo $tampilkanPengeluaran['nominal_pengeluaran']; ?></td>
+                    <td><?php echo number_format($tampilkanPengeluaran['nominal_pengeluaran'], 0,",", ".")?></td>
                     <td>
                         <?php $id_row_pengeluaran = $tampilkanPengeluaran['id_pengeluaran'];?>
                         <a href="../edit/edit_spending.php?id=<?php echo $id_row_pengeluaran;?>"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>

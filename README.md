@@ -12,7 +12,7 @@ We are developing a website, "UangKu," to help us more easily manage and track o
 - MySQL
 
 ### Youtube Link
-- 
+- https://youtu.be/w4Tf1coZGvQ
 
 ## Screenshots
 
